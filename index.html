@@ -49,9 +49,11 @@ align-items:center;
 gap:5px
 }
 
+
 .controle-musica input{
 width:80px
 }
+
 
 
 .capa{
@@ -98,9 +100,11 @@ transform:scale(.95)
 }
 
 
+
 .container{
 padding:50px 20px
 }
+
 
 
 .polaroid{
@@ -137,6 +141,7 @@ font-family:"Comic Sans MS",cursive
 }
 
 
+
 .heart{
 position:fixed;
 bottom:-30px;
@@ -161,6 +166,7 @@ opacity:0
 }
 
 
+
 @keyframes entrada{
 
 from{
@@ -174,6 +180,7 @@ transform:translateY(0)
 }
 
 }
+
 
 
 @keyframes aparecer{
@@ -201,9 +208,7 @@ transform:scale(1)
 
 
 <div class="controle-musica">
-
 🎵
-
 <input 
 id="volume"
 type="range"
@@ -211,8 +216,8 @@ min="0"
 max="1"
 step="0.01"
 value="0.15">
-
 </div>
+
 
 
 
@@ -238,11 +243,11 @@ abrir
 
 
 
+
 <section class="container">
 
 
 <div class="polaroid">
-
 <img src="1.jpg">
 
 <div class="texto">
@@ -253,8 +258,8 @@ amor eu coloquei essa foto porque entre as nossas essa e a minha favorita e voce
 
 
 
-<div class="polaroid">
 
+<div class="polaroid">
 <img src="2.jpg">
 
 <div class="texto">
@@ -265,8 +270,8 @@ amor amo dormi no seu peito tabom? i voce fico linda eu te amo
 
 
 
-<div class="polaroid">
 
+<div class="polaroid">
 <img src="3.jpg">
 
 <div class="texto">
@@ -277,8 +282,8 @@ meu bigodao masculo e a minha namorada linda amor eu te amo
 
 
 
-<div class="polaroid">
 
+<div class="polaroid">
 <img src="4.jpg">
 
 <div class="texto">
@@ -289,8 +294,8 @@ as foto ta na ordem do meu favoritismo das foto e eu coloquei roxo porque eu te 
 
 
 
-<div class="polaroid">
 
+<div class="polaroid">
 <img src="5.jpg">
 
 <div class="texto">
@@ -305,12 +310,15 @@ AMOR NAO EXPLODE PORFAVOR EUTEAMOTABOM
 
 
 
+
+
 <script>
 
 
 let player;
 
 let volumeAtual=15;
+
 
 
 let tag=document.createElement("script");
@@ -323,7 +331,9 @@ firstScriptTag.parentNode.insertBefore(tag,firstScriptTag);
 
 
 
+
 function onYouTubeIframeAPIReady(){
+
 
 player=new YT.Player("player",{
 
@@ -333,9 +343,10 @@ width:"1",
 
 videoId:"wgPOdUndDQU",
 
+
 playerVars:{
 
-autoplay:0,
+autoplay:1,
 
 loop:1,
 
@@ -345,7 +356,9 @@ start:11,
 
 controls:0,
 
-disablekb:1
+disablekb:1,
+
+playsinline:1
 
 },
 
@@ -356,7 +369,25 @@ onReady:function(){
 
 player.setVolume(volumeAtual);
 
+player.seekTo(11);
+
+player.playVideo();
+
+},
+
+
+onStateChange:function(event){
+
+if(event.data===YT.PlayerState.ENDED){
+
+player.seekTo(11);
+
+player.playVideo();
+
 }
+
+}
+
 
 }
 
@@ -369,10 +400,14 @@ player.setVolume(volumeAtual);
 
 
 
+
+
+
 const volume=document.getElementById("volume");
 
 
 volume.oninput=()=>{
+
 
 volumeAtual=volume.value*100;
 
@@ -383,7 +418,10 @@ player.setVolume(volumeAtual);
 
 }
 
+
 }
+
+
 
 
 
@@ -401,6 +439,7 @@ player.setVolume(volumeAtual);
 }
 
 
+
 document.querySelector(".container").scrollIntoView({
 
 behavior:"smooth"
@@ -409,6 +448,9 @@ behavior:"smooth"
 
 
 }
+
+
+
 
 
 
