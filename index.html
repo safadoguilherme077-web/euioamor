@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Karol 💜</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", sans-serif;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+
+    background:
+    linear-gradient(
+        180deg,
+        #12001f,
+        #4c1d95,
+        #9333ea,
+        #d8b4fe
+    );
+
+    min-height:100vh;
+    color:white;
+    overflow-x:hidden;
+
+}
+
+
+
+/* =========================
+        CAPA
+========================= */
+
+
+.capa{
+
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:25px;
+
+}
+
+
+.capa h1{
+
+    font-size:60px;
+
+    text-shadow:
+    0 0 10px #fff,
+    0 0 30px #c084fc;
+
+    animation:entrada 2s;
+
+}
+
+
+
+.capa p{
+
+    margin-top:25px;
+
+    font-size:21px;
+
+    line-height:1.5;
+
+    max-width:330px;
+
+    animation:entrada 3s;
+
+}
+
+
+
+.botao{
+
+    margin-top:45px;
+
+    padding:16px 35px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#a855f7;
+
+    color:white;
+
+    font-size:18px;
+
+    box-shadow:
+    0 0 25px #e9d5ff;
+
+    animation:pulsar 2s infinite;
+
+}
+
+
+
+.botao:active{
+
+    transform:scale(.95);
+
+}
+
+
+
+/* =========================
+       POLAROIDS
+========================= */
+
+
+.container{
+
+    padding:50px 20px;
+
+}
+
+
+
+.polaroid{
+
+
+    background:#fff;
+
+    color:#333;
+
+    width:100%;
+
+    max-width:350px;
+
+    margin:60px auto;
+
+
+    padding:15px;
+
+    padding-bottom:35px;
+
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.5);
+
+
+
+    transform:rotate(-3deg);
+
+
+    animation:aparecer 1.5s;
+
+
+}
+
+
+
+.polaroid:nth-child(even){
+
+    transform:rotate(3deg);
+
+}
+
+
+
+.polaroid img{
+
+
+    width:100%;
+
+
+    height:310px;
+
+
+    object-fit:cover;
+
+
+}
+
+
+
+.texto{
+
+
+    margin-top:22px;
+
+
+    text-align:center;
+
+
+    font-size:19px;
+
+
+    font-family:"Comic Sans MS", cursive;
+
+
+}
+
+
+
+/* =========================
+       CORAÇÕES
+========================= */
+
+
+.heart{
+
+
+    position:fixed;
+
+    bottom:-30px;
+
+    font-size:25px;
+
+    animation:subir 8s linear infinite;
+
+    pointer-events:none;
+
+
+}
+
+
+
+@keyframes subir{
+
+
+0%{
+
+    transform:translateY(0) rotate(0deg);
+
+    opacity:1;
+
+}
+
+
+100%{
+
+
+    transform:
+    translateY(-120vh)
+    rotate(360deg);
+
+
+    opacity:0;
+
+
+}
+
+}
+
+
+
+/* =========================
+       ANIMAÇÕES
+========================= */
+
+
+@keyframes entrada{
+
+
+from{
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+}
+
+
+to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+}
+
+
+
+@keyframes aparecer{
+
+
+from{
+
+    opacity:0;
+
+    transform:scale(.8);
+
+}
+
+
+to{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+
+}
+
+
+
+@keyframes pulsar{
+
+
+0%,100%{
+
+    box-shadow:0 0 20px #d8b4fe;
+
+}
+
+
+50%{
+
+    box-shadow:0 0 45px #fff;
+
+}
+
+
+}
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+
+<!-- ===============================
+             CAPA
+
+       ALTERE OS TEXTOS AQUI
+================================ -->
+
+
+<section class="capa">
+
+
+<h1>
+Karol 💜
+</h1>
+
+
+
+<p>
+
+Feliz Dia dos Namorados ❤️
+
+<br><br>
+
+Fiz esse pequeno cantinho
+especialmente para você.
+
+</p>
+
+
+
+<button class="botao"
+onclick="document.querySelector('.container').scrollIntoView()">
+
+Abrir nossas memórias 💜
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ===============================
+          POLAROIDS
+
+     TROQUE OS TEXTOS DENTRO
+     DE CADA "texto"
+
+================================ -->
+
+
+<section class="container">
+
+
+
+
+
+
+<div class="polaroid">
+
+
+<img src="1.jpg">
+
+
+<div class="texto">
+
+<!-- FOTO 1 -->
+
+Nosso primeiro momento especial 💜
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="polaroid">
+
+
+<img src="2.jpg">
+
+
+<div class="texto">
+
+<!-- FOTO 2 -->
+
+Uma lembrança que sempre vou guardar ❤️
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="polaroid">
+
+
+<img src="3.jpg">
+
+
+<div class="texto">
+
+<!-- FOTO 3 -->
+
+Obrigado por deixar meus dias melhores ✨
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="polaroid">
+
+
+<img src="4.jpg">
+
+
+<div class="texto">
+
+<!-- FOTO 4 -->
+
+Cada momento com você é único 💜
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="polaroid">
+
+
+<img src="5.jpg">
+
+
+<div class="texto">
+
+<!-- FOTO 5 -->
+
+Que venham muitas outras memórias ❤️
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+<script>
+
+
+// CORAÇÕES FLUTUANDO
+
+
+setInterval(()=>{
+
+
+let coracao=document.createElement("div");
+
+
+coracao.className="heart";
+
+
+coracao.innerHTML="💜";
+
+
+
+coracao.style.left =
+Math.random()*100+"vw";
+
+
+
+coracao.style.animationDuration =
+(Math.random()*5+5)+"s";
+
+
+
+document.body.appendChild(coracao);
+
+
+
+setTimeout(()=>{
+
+
+coracao.remove();
+
+
+},8000);
+
+
+
+},600);
+
+
+
+</script>
+
+
+
+</body>
+</html>
