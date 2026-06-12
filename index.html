@@ -1,87 +1,369 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para minha namoreka</title>
-    <style>
-        *{ margin:0; padding:0; box-sizing:border-box; font-family:"Segoe UI", sans-serif; }
-        html{ scroll-behavior:smooth; }
-        body{
-            background: linear-gradient(180deg, #12001f, #4c1d95, #9333ea, #d8b4fe);
-            min-height:100vh;
-            color:white;
-            overflow-x:hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* Música */
-        .controle-musica { position:fixed; bottom:15px; left:15px; background:rgba(255,255,255,0.25); padding:8px 12px; border-radius:20px; font-size:14px; z-index:999; }
+<title>Para minha namoreka</title>
 
-        /* Capa */
-        .capa{ height:100vh; display:flex; justify-content:center; align-items:center; flex-direction:column; text-align:center; padding:25px; }
-        .capa h1{ font-size:60px; animation:entrada 2s; }
-        .capa p{ margin-top:25px; font-size:21px; line-height:1.5; max-width:330px; animation:entrada 3s; }
-        .botao{ margin-top:45px; padding:16px 35px; border:none; border-radius:50px; background:#a855f7; color:white; font-size:18px; animation:entrada 3.5s; cursor:pointer; }
-        .botao:active{ transform:scale(.95); }
+<style>
 
-        /* Polaroids */
-        .container{ padding:50px 20px; }
-        .polaroid{ background:#fff; color:#333; width:100%; max-width:350px; margin:60px auto; padding:15px; padding-bottom:35px; box-shadow:0 15px 35px rgba(0,0,0,.5); transform:rotate(-3deg); animation:aparecer 1.5s; }
-        .polaroid:nth-child(even){ transform:rotate(3deg); }
-        .polaroid img{ width:100%; height:310px; object-fit:cover; }
-        .texto{ margin-top:22px; text-align:center; font-size:19px; font-family:"Comic Sans MS", cursive; }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
 
-        /* Corações */
-        .heart{ position:fixed; bottom:-30px; font-size:25px; animation:subir 8s linear infinite; pointer-events:none; }
-        @keyframes subir{ 0%{ transform:translateY(0) rotate(0deg); opacity:1; } 100%{ transform:translateY(-120vh) rotate(360deg); opacity:0; } }
+html{
+scroll-behavior:smooth;
+}
 
-        /* Animações */
-        @keyframes entrada{ from{ opacity:0; transform:translateY(50px); } to{ opacity:1; transform:translateY(0); } }
-        @keyframes aparecer{ from{ opacity:0; transform:scale(.8); } to{ opacity:1; transform:scale(1); } }
-    </style>
+body{
+background:linear-gradient(180deg,#12001f,#4c1d95,#9333ea,#d8b4fe);
+min-height:100vh;
+color:white;
+overflow-x:hidden;
+}
+
+
+/* música */
+
+.controle-musica{
+position:fixed;
+bottom:15px;
+left:15px;
+background:rgba(255,255,255,.25);
+padding:8px 12px;
+border-radius:20px;
+z-index:999;
+display:flex;
+align-items:center;
+gap:5px;
+}
+
+.controle-musica input{
+width:80px;
+}
+
+
+/* capa */
+
+.capa{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:25px;
+}
+
+.capa h1{
+font-size:60px;
+animation:entrada 2s;
+}
+
+.capa p{
+margin-top:25px;
+font-size:21px;
+line-height:1.5;
+max-width:330px;
+animation:entrada 3s;
+}
+
+.botao{
+margin-top:45px;
+padding:16px 35px;
+border:none;
+border-radius:50px;
+background:#a855f7;
+color:white;
+font-size:18px;
+cursor:pointer;
+animation:entrada 3.5s;
+}
+
+.botao:active{
+transform:scale(.95);
+}
+
+
+/* fotos */
+
+.container{
+padding:50px 20px;
+}
+
+.polaroid{
+background:white;
+color:#333;
+width:100%;
+max-width:350px;
+margin:60px auto;
+padding:15px;
+padding-bottom:35px;
+box-shadow:0 15px 35px rgba(0,0,0,.5);
+transform:rotate(-3deg);
+animation:aparecer 1.5s;
+}
+
+.polaroid:nth-child(even){
+transform:rotate(3deg);
+}
+
+.polaroid img{
+width:100%;
+height:310px;
+object-fit:cover;
+}
+
+.texto{
+margin-top:22px;
+text-align:center;
+font-size:19px;
+font-family:"Comic Sans MS",cursive;
+}
+
+
+/* corações */
+
+.heart{
+position:fixed;
+bottom:-30px;
+font-size:25px;
+animation:subir 8s linear infinite;
+pointer-events:none;
+}
+
+@keyframes subir{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+
+/* animações */
+
+@keyframes entrada{
+
+from{
+opacity:0;
+transform:translateY(50px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@keyframes aparecer{
+
+from{
+opacity:0;
+transform:scale(.8);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+</style>
+
 </head>
+
+
 <body>
 
-    <audio id="musica" loop>
-        <source src="sua-musica.mp3" type="audio/mpeg">
-    </audio>
 
-    <div class="controle-musica">🎵 Música ligada</div>
+<audio id="musica" loop>
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
 
-    <section class="capa">
-        <h1>Karol minhabblinda</h1>
-        <p>Feliz Dia dos Namorado meuamorlinda<br><br></p>
-        <button class="botao" onclick="iniciarTudo()">abrir</button>
-    </section>
 
-    <section class="container">
-        <div class="polaroid"><img src="1.jpg"><div class="texto">amor eu coloquei essa foto porque entre as nossas essa e a minha favorita e voce fico linda eu te amo</div></div>
-        <div class="polaroid"><img src="2.jpg"><div class="texto">amor amo dormi no seu peito tabom? i voce fico linda eu te amo</div></div>
-        <div class="polaroid"><img src="3.jpg"><div class="texto">meu bigodao masculo e a minha namorada linda amor eu te amo</div></div>
-        <div class="polaroid"><img src="4.jpg"><div class="texto">as foto ta na ordem do meu favoritismo das foto e eu coloquei roxo porque eu te amo</div></div>
-        <div class="polaroid"><img src="5.jpg"><div class="texto">AMOR NAO EXPLODE PORFAVOR EUTEAMOTABOM</div></div>
-    </section>
+<div class="controle-musica">
+🎵
+<input 
+type="range"
+id="volume"
+min="0"
+max="1"
+step="0.01"
+value="0.15">
+</div>
 
-    <script>
-        function iniciarTudo() {
-            // Toca a música
-            const audio = document.getElementById('musica');
-            audio.play();
-            
-            // Rola para a galeria
-            document.querySelector('.container').scrollIntoView();
-        }
 
-        // Corações
-        setInterval(()=>{
-            let coracao=document.createElement("div");
-            coracao.className="heart";
-            coracao.innerHTML="💜";
-            coracao.style.left = Math.random()*100+"vw";
-            coracao.style.animationDuration = (Math.random()*5+5)+"s";
-            document.body.appendChild(coracao);
-            setTimeout(()=>{ coracao.remove(); },8000);
-        },600);
-    </script>
+
+<section class="capa">
+
+<h1>
+Karol minhabblinda
+</h1>
+
+
+<p>
+Feliz Dia dos Namorado meuamorlinda
+<br><br>
+</p>
+
+
+<button class="botao" onclick="abrirSite()">
+abrir
+</button>
+
+
+</section>
+
+
+
+
+
+<section class="container">
+
+
+<div class="polaroid">
+<img src="1.jpg">
+
+<div class="texto">
+amor eu coloquei essa foto porque entre as nossas essa e a minha favorita e voce fico linda eu te amo
+</div>
+
+</div>
+
+
+
+<div class="polaroid">
+<img src="2.jpg">
+
+<div class="texto">
+amor amo dormi no seu peito tabom? i voce fico linda eu te amo
+</div>
+
+</div>
+
+
+
+<div class="polaroid">
+<img src="3.jpg">
+
+<div class="texto">
+meu bigodao masculo e a minha namorada linda amor eu te amo
+</div>
+
+</div>
+
+
+
+<div class="polaroid">
+<img src="4.jpg">
+
+<div class="texto">
+as foto ta na ordem do meu favoritismo das foto e eu coloquei roxo porque eu te amo
+</div>
+
+</div>
+
+
+
+<div class="polaroid">
+<img src="5.jpg">
+
+<div class="texto">
+AMOR NAO EXPLODE PORFAVOR EUTEAMOTABOM
+</div>
+
+</div>
+
+
+</section>
+
+
+
+
+<script>
+
+
+const musica=document.getElementById("musica");
+const volume=document.getElementById("volume");
+
+
+musica.volume=0.15;
+
+
+volume.oninput=function(){
+
+musica.volume=this.value;
+
+}
+
+
+
+function abrirSite(){
+
+musica.play();
+
+
+document.querySelector(".container")
+.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+
+
+
+setInterval(()=>{
+
+
+let coracao=document.createElement("div");
+
+
+coracao.className="heart";
+
+
+coracao.innerHTML="💜";
+
+
+coracao.style.left=Math.random()*100+"vw";
+
+
+coracao.style.animationDuration=(Math.random()*5+5)+"s";
+
+
+document.body.appendChild(coracao);
+
+
+
+setTimeout(()=>{
+
+coracao.remove();
+
+},8000);
+
+
+
+},600);
+
+
+
+</script>
+
+
 </body>
 </html>
